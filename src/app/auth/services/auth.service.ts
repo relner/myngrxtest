@@ -7,6 +7,7 @@ import {RegisterRequestInterface} from 'src/app/auth/types/registerRequest.inter
 import {CurrentUserInterface} from 'src/app/shared/types/currentUser.interface'
 import {environment} from 'src/environments/environment'
 import {AuthResponseInterface} from 'src/app/auth/types/authResponse.interface'
+import { LoginRequestInterface } from '../types/loginRequest.interface'
 
 @Injectable()
 export class AuthService {
@@ -21,7 +22,7 @@ export class AuthService {
       .pipe(map((response: AuthResponseInterface) => response.user))
   }
 
-  login(data: RegisterRequestInterface): Observable<CurrentUserInterface> {
+  login(data: LoginRequestInterface): Observable<CurrentUserInterface> {
 
     const url = environment.apiUrl + '/users/login'
     

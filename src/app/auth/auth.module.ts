@@ -14,6 +14,7 @@ import {PersistanceService} from 'src/app/shared/services/persistance.service';
 import { LoginComponent } from './components/login/login.component';
 import { AuthComponent } from './components/auth/auth.component'
 import { AuthRoutingModule } from './auth-routing.module'
+import { LoginEffect } from './store/effects/login.effect'
 
 @NgModule({
   imports: [
@@ -21,7 +22,7 @@ import { AuthRoutingModule } from './auth-routing.module'
     AuthRoutingModule,
     ReactiveFormsModule,
     StoreModule.forFeature('auth', reducers),
-    EffectsModule.forFeature([RegisterEffect]),
+    EffectsModule.forFeature([RegisterEffect, LoginEffect]),
     BackendErrorMessagesModule
   ],
   declarations: [RegisterComponent, LoginComponent, AuthComponent],
