@@ -4,7 +4,8 @@ import {AuthStateInterface} from 'src/app/auth/types/authState.interface'
 import {
   registerAction,
   registerSuccessAction,
-  registerFailureAction
+  registerFailureAction,
+  loginAction
 } from 'src/app/auth/store/actions/register.action'
 
 const initialState: AuthStateInterface = {
@@ -40,7 +41,15 @@ const authReducer = createReducer(
       isSubmitting: false,
       validationErrors: action.errors
     })
-  )
+  ),
+  on(
+    loginAction,
+    (state): AuthStateInterface => ({
+      ...state,
+      isSubmitting: true,
+      validationErrors: null
+    })
+  ),
 )
 
 export function reducers(state: AuthStateInterface, action: Action) {
